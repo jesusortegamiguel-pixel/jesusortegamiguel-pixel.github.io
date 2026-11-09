@@ -1,0 +1,867 @@
+
+/* ========================================
+   1. VARIABLES GENERALES
+======================================== */
+
+
+/* ========================================
+   VARIABLES DEL TEMA CLARO
+======================================== */
+
+:root {
+  color-scheme: light;
+
+  --primary: #3157d5;
+  --primary-dark: #2443ad;
+  --secondary: #eef2ff;
+
+  --background: #f6f8fc;
+  --surface: #ffffff;
+
+  --text: #202b40;
+  --muted: #718096;
+
+  --border: #e6eaf2;
+
+  --radius: 18px;
+  --shadow: 0 8px 25px rgba(31, 45, 80, 0.06);
+}
+
+/* ========================================
+   VARIABLES DEL TEMA OSCURO
+======================================== */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --primary: #7895ff;
+  --primary-dark: #5d7be8;
+  --secondary: #293650;
+
+  --background: #111827;
+  --surface: #1d293b;
+
+  --text: #edf2fc;
+  --muted: #a4b1c5;
+
+  --border: #354258;
+
+  --shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   TRANSICIÓN ENTRE TEMAS
+======================================== */
+
+body,
+.site-header,
+.site-footer,
+.subject-card,
+.quiz,
+.quiz-question {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* ========================================
+   2. CONFIGURACIÓN GENERAL
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.main-content {
+  width: min(1150px, 92%);
+  margin: 0 auto;
+  min-height: 65vh;
+}
+
+/* ========================================
+   3. CABECERA
+======================================== */
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  width: min(1150px, 92%);
+  margin: auto;
+  min-height: 76px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.logo-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+
+  background: var(--primary);
+  color: white;
+  border-radius: 13px;
+  font-size: 20px;
+}
+
+.main-nav {
+  display: flex;
+  gap: 28px;
+}
+
+.main-nav a {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.main-nav a:hover {
+  color: var(--primary);
+}
+
+/* ========================================
+   4. PORTADA PRINCIPAL
+======================================== */
+
+.hero {
+  margin-top: 45px;
+  padding: 65px 55px;
+  border-radius: 25px;
+
+  background:
+    radial-gradient(circle at 90% 10%,
+      rgba(255,255,255,0.2), transparent 30%),
+    linear-gradient(120deg, #253f9f, #4268e5);
+
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.hero-tag {
+  display: inline-block;
+  padding: 7px 13px;
+  border-radius: 30px;
+
+  background: rgba(255,255,255,0.15);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.hero h1 {
+  max-width: 650px;
+  margin: 22px 0 15px;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.15;
+}
+
+.hero p {
+  max-width: 620px;
+  margin: 0;
+  color: rgba(255,255,255,0.85);
+  font-size: 17px;
+}
+
+/* ========================================
+   5. SECCIONES
+======================================== */
+
+.section {
+  padding: 55px 0 70px;
+}
+
+.section-kicker {
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.section-heading h2 {
+  margin: 8px 0;
+  font-size: 29px;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ========================================
+   6. TARJETAS DE ASIGNATURAS
+======================================== */
+
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.subject-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 25px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s,
+              border-color 0.2s;
+}
+
+.subject-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 15px 35px rgba(31, 45, 80, 0.12);
+}
+
+.subject-icon {
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+
+  display: grid;
+  place-items: center;
+
+  background: var(--secondary);
+  border-radius: 16px;
+  font-size: 27px;
+}
+
+.subject-info h3 {
+  margin: 0 0 5px;
+  font-size: 17px;
+}
+
+.subject-info p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.subject-arrow {
+  margin-left: auto;
+  color: var(--primary);
+  font-size: 23px;
+}
+
+/* ========================================
+   7. PIE DE PÁGINA
+======================================== */
+
+.site-footer {
+  margin-top: 50px;
+  background: #202b40;
+  color: white;
+}
+
+.footer-container {
+  width: min(1150px, 92%);
+  margin: auto;
+  padding: 35px 0;
+}
+
+.footer-brand strong {
+  font-size: 18px;
+}
+
+.footer-brand p {
+  color: #b7c0d0;
+  font-size: 13px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+
+  color: #b7c0d0;
+  font-size: 12px;
+}
+
+
+/* ========================================
+   8. DISEÑO ADAPTABLE
+======================================== */
+
+@media (max-width: 700px) {
+
+  .header-container {
+    min-height: 65px;
+  }
+
+  .site-logo {
+    font-size: 16px;
+  }
+
+  .main-nav {
+    gap: 13px;
+  }
+
+  .main-nav a {
+    font-size: 12px;
+  }
+
+  .hero {
+    margin-top: 25px;
+    padding: 40px 25px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .subject-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subject-card {
+    padding: 19px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .header-container {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 12px 0;
+  }
+
+  .main-nav {
+    padding-bottom: 5px;
+  }
+}
+
+
+
+/* ========================================
+   BOTÓN DE MODO OSCURO
+======================================== */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  background: var(--surface);
+  color: var(--text);
+
+  font-size: 19px;
+  cursor: pointer;
+
+  transition: background 0.2s, transform 0.2s;
+}
+
+.theme-toggle:hover {
+  background: var(--secondary);
+  transform: rotate(10deg);
+}
+
+[data-theme="dark"] .hero {
+  background:
+    radial-gradient(circle at 90% 10%,
+      rgba(255,255,255,0.12), transparent 30%),
+    linear-gradient(120deg, #172554, #304b9c);
+}
+
+[data-theme="dark"] .site-footer {
+  background: #0b1220;
+}
+
+@media (max-width: 700px) {
+  .header-actions {
+    gap: 12px;
+  }
+}
+
+
+
+/* ========================================
+   PÁGINAS DE ASIGNATURAS
+======================================== */
+
+.subject-hero {
+  margin-top: 35px;
+  padding: 35px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.subject-hero-content {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.subject-hero-icon {
+  width: 85px;
+  height: 85px;
+  min-width: 85px;
+  display: grid;
+  place-items: center;
+  background: var(--secondary);
+  border-radius: 22px;
+  font-size: 40px;
+}
+
+.subject-hero h1 {
+  margin: 5px 0;
+  font-size: clamp(28px, 4vw, 38px);
+}
+
+.subject-hero p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Unidades */
+
+.unit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.unit-card {
+  padding: 25px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.unit-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+.unit-number {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: var(--secondary);
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.unit-card h3 {
+  margin: 15px 0 8px;
+  font-size: 19px;
+}
+
+.unit-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.unit-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.resource-link {
+  display: block;
+  padding: 11px 14px;
+  border-radius: 9px;
+  background: var(--background);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+
+.resource-link:hover {
+  background: var(--secondary);
+}
+
+@media (max-width: 700px) {
+
+  .subject-hero {
+    padding: 24px;
+  }
+
+  .subject-hero-content {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .subject-hero-icon {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    font-size: 29px;
+  }
+
+  .unit-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* ========================================
+   PÁGINAS DE UNIDADES DIDÁCTICAS
+======================================== */
+
+.lesson-page {
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+.lesson-header {
+  margin: 25px 0;
+  padding: 40px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.lesson-header h1 {
+  margin: 15px 0 8px;
+  font-size: clamp(28px, 4vw, 38px);
+}
+
+.lesson-header p {
+  color: var(--muted);
+}
+
+.lesson-number {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: var(--secondary);
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* Índice de unidades */
+
+.lesson-index {
+  margin: 30px 0;
+  padding: 25px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.lesson-index h2 {
+  margin-top: 0;
+  font-size: 19px;
+}
+
+.lesson-index ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lesson-index li {
+  margin-top: 8px;
+}
+
+.lesson-index a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  color: var(--text);
+  background: var(--background);
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.lesson-index a:hover,
+.lesson-index a[aria-current="page"] {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.lesson-index a span {
+  min-width: 85px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* Contenido de la unidad */
+
+.lesson-content {
+  padding: 35px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow-wrap: anywhere;
+}
+
+.lesson-content h2 {
+  margin-top: 35px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.lesson-content h3 {
+  margin-top: 25px;
+}
+
+.lesson-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Navegación anterior y siguiente */
+
+.lesson-navigation {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.lesson-nav-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.lesson-nav-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
+.lesson-nav-card span {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.lesson-nav-card strong {
+  font-size: 15px;
+}
+
+.lesson-nav-card.next {
+  text-align: right;
+}
+
+@media (max-width: 700px) {
+
+  .lesson-header,
+  .lesson-content,
+  .lesson-index {
+    padding: 22px;
+  }
+
+  .lesson-navigation {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-index a {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+}
+
+
+/* ========================================
+   DISEÑO DE LAS PÁGINAS DE ASIGNATURAS
+======================================== */
+
+.subject-page {
+  padding-top: 30px;
+}
+
+.subject-hero {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  margin-top: 25px;
+  padding: 45px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.subject-hero-icon {
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+
+  display: grid;
+  place-items: center;
+
+  background: var(--secondary);
+  border-radius: 25px;
+
+  font-size: 48px;
+}
+
+.subject-hero-info h1 {
+  margin: 8px 0;
+  font-size: clamp(30px, 5vw, 42px);
+  line-height: 1.2;
+}
+
+.subject-hero-info p {
+  margin: 0;
+  max-width: 650px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+/* Tarjetas de unidades */
+
+.unit-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 230px;
+}
+
+.unit-card .resource-link {
+  margin-top: auto;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 45px 20px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.empty-state span {
+  font-size: 40px;
+}
+
+.empty-state h3 {
+  margin-bottom: 5px;
+}
+
+.empty-state p {
+  color: var(--muted);
+}
+
+/* Móviles */
+
+@media (max-width: 700px) {
+
+  .subject-hero {
+    padding: 25px;
+    align-items: flex-start;
+    gap: 17px;
+  }
+
+  .subject-hero-icon {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    border-radius: 17px;
+    font-size: 32px;
+  }
+
+  .subject-hero-info h1 {
+    font-size: 27px;
+  }
+
+  .subject-hero-info p {
+    font-size: 14px;
+  }
+
+}

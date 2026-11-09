@@ -1,0 +1,82 @@
+---
+layout: default
+---
+
+<section class="subject-page">
+
+  <a class="back-link" href="{{ '/' | relative_url }}">
+    ← Volver al inicio
+  </a>
+
+  <header class="subject-hero">
+
+    <div class="subject-hero-icon">
+      {{ page.icono | default: "📚" }}
+    </div>
+
+    <div class="subject-hero-info">
+
+      <span class="section-kicker">AULA VIRTUAL</span>
+
+      <h1>{{ page.title }}</h1>
+
+      <p>{{ page.description }}</p>
+
+    </div>
+
+  </header>
+
+  <section class="section">
+
+    <div class="section-heading">
+      <span class="section-kicker">PROGRAMA DE ESTUDIO</span>
+      <h2>Unidades didácticas</h2>
+      <p>Accede a los contenidos y actividades de cada unidad.</p>
+    </div>
+
+    <div class="unit-grid">
+
+      {% assign unidades = site.unidades
+        | where: "asignatura", page.slug
+        | sort: "orden" %}
+
+      {% assign total_unidades = unidades | size %}
+
+      {% if total_unidades > 0 %}
+
+        {% for unidad in unidades %}
+
+          <article class="unit-card">
+
+            <div class="unit-number">
+              UNIDAD {{ unidad.orden }}
+            </div>
+
+            <h3>{{ unidad.title }}</h3>
+
+            <p>{{ unidad.description }}</p>
+
+            <a href="{{ unidad.url | relative_url }}"
+               class="resource-link">
+              Acceder a la unidad →
+            </a>
+
+          </article>
+
+        {% endfor %}
+
+      {% else %}
+
+        <div class="empty-state">
+          <span>📚</span>
+          <h3>Próximamente</h3>
+          <p>Estamos preparando los contenidos de esta asignatura.</p>
+        </div>
+
+      {% endif %}
+
+    </div>
+
+  </section>
+
+</section>

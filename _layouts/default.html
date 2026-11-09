@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            }
+        };
+    </script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+
+    <title>
+        {% if page.title %}
+        {{ page.title }} | {{ site.title }}
+        {% else %}
+        {{ site.title }}
+        {% endif %}
+    </title>
+
+    <meta name="description" content="{{ site.description }}">
+
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+    <!-- Estilos de ejercicios -->
+    <link rel="stylesheet" href="{{ '/assets/css/quiz.css' | relative_url }}">
+
+    <!-- Aplicar el tema antes de mostrar la página -->
+    <script>
+        (function () {
+            try {
+                const tema = localStorage.getItem("aula-theme");
+                if (tema === "dark" || tema === "light") {
+                    document.documentElement.setAttribute("data-theme", tema);
+                }
+            } catch (error) { }
+        })();
+    </script>
+</head>
+
+<body>
+
+    {% include header.html %}
+
+    <main class="main-content">
+        {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    <!-- Sistema de ejercicios -->
+    <script src="{{ '/assets/js/ejercicios.js' | relative_url }}" defer></script>
+
+    <!-- Sistema de temas -->
+    <script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>
+
+</body>
+
+</html>

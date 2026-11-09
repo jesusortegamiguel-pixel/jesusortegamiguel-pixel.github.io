@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            }
+        };
+    </script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+
+    <title>
+        
+        El programa | Recursos Educativos Interactivos
+        
+    </title>
+
+    <meta name="description" content="Plataforma educativa de apuntes, temarios y ejercicios interactivos">
+
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- Estilos de ejercicios -->
+    <link rel="stylesheet" href="/assets/css/quiz.css">
+
+    <!-- Aplicar el tema antes de mostrar la página -->
+    <script>
+        (function () {
+            try {
+                const tema = localStorage.getItem("aula-theme");
+                if (tema === "dark" || tema === "light") {
+                    document.documentElement.setAttribute("data-theme", tema);
+                }
+            } catch (error) { }
+        })();
+    </script>
+</head>
+
+<body>
+
+    
+<header class="site-header">
+  <div class="header-container">
+
+    <a class="site-logo" href="/">
+      <span class="logo-icon">🎓</span>
+      <span>Recursos Educativos Interactivos</span>
+    </a>
+
+    <div class="header-actions">
+
+      <nav class="main-nav">
+        <a href="/">Inicio</a>
+        <a href="/#asignaturas">
+          Asignaturas
+        </a>
+      </nav>
+
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Activar modo oscuro">
+
+        <span id="theme-icon" aria-hidden="true">🌙</span>
+
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+
+    <main class="main-content">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="lesson-page">
+
+    <a class="back-link" href="/asignaturas/programacion/">
+        ← Volver a la asignatura
+    </a>
+
+    <div class="lesson-header">
+
+        <span class="section-kicker">
+            PROGRAMACION
+        </span>
+
+        <span class="lesson-number">
+            UNIDAD 1
+        </span>
+
+        <h1>El programa</h1>
+
+        <p>Introducción a programas informáticos</p>
+
+    </div>
+
+    <nav class="lesson-index" aria-label="Índice de unidades">
+
+        <h2>Unidades de la asignatura</h2>
+
+        <ol>
+            
+            <li>
+                <a href="/unidades/programacion/unidad-1/" aria-current="page" >
+                    <span>Unidad 1</span>
+                    El programa
+                </a>
+            </li>
+            
+        </ol>
+
+    </nav>
+
+    <article class="lesson-content">
+        <p><a class="back-link" href="/asignaturas/programacion/">
+  ← Volver a Programación
+</a></p>
+
+<h1 id="unidad-1-el-programa">Unidad 1. El programa</h1>
+
+<h2 id="1-introducción">1. Introducción</h2>
+
+<p>Un programa de computadora (o programa informático) es un conjunto de instrucciones ordenadas y escritas en un lenguaje de programación que le indica a la máquina qué tareas debe realizar y cómo resolver un problema específico</p>
+
+<h2 id="2-cómo-se-crea-un-programa">2. Cómo se crea un programa</h2>
+
+<p>La creación de un programa puede resumirse en tres pasos:</p>
+
+<ul>
+  <li><strong>Código fuente:</strong> el programador escribe las instrucciones en un lenguaje legible para los humanos (como Python, Java o C).</li>
+  <li><strong>Traducción o compilación:</strong> Esas instrucciones se procesan para que la computadora las entienda en su propio lenguaje de máquina (ceros y unos).</li>
+  <li><strong>Ejecución:</strong>  El procesador central ejecuta las órdenes paso a paso para ofrecer un resultado o una interfaz interactiva al usuario.</li>
+</ul>
+
+    </article>
+
+    <nav class="lesson-navigation" aria-label="Navegación entre unidades">
+
+        
+        <div></div>
+        
+
+        
+
+    </nav>
+
+</section>
+    </main>
+
+    
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <strong>Recursos Educativos Interactivos</strong>
+      <p>Un espacio para aprender, practicar y avanzar.</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        © 2026
+        Jesús Ortega.
+        Todos los derechos reservados.
+      </p>
+      <p>Plataforma educativa</p>
+    </div>
+
+  </div>
+</footer>
+
+
+    <!-- Sistema de ejercicios -->
+    <script src="/assets/js/ejercicios.js" defer></script>
+
+    <!-- Sistema de temas -->
+    <script src="/assets/js/theme.js" defer></script>
+
+</body>
+
+</html>

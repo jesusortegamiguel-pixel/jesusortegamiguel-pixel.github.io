@@ -1,0 +1,32 @@
+
+<header class="site-header">
+  <div class="header-container">
+
+    <a class="site-logo" href="{{ '/' | relative_url }}">
+      <span class="logo-icon">🎓</span>
+      <span>{{ site.title }}</span>
+    </a>
+
+    <div class="header-actions">
+
+      <nav class="main-nav">
+        <a href="{{ '/' | relative_url }}">Inicio</a>
+        <a href="{{ '/' | append: '#asignaturas' | relative_url }}">
+          Asignaturas
+        </a>
+      </nav>
+
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Activar modo oscuro">
+
+        <span id="theme-icon" aria-hidden="true">🌙</span>
+
+      </button>
+
+    </div>
+
+  </div>
+</header>

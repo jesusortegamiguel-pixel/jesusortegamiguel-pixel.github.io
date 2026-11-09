@@ -1,0 +1,91 @@
+---
+layout: default
+---
+
+{% assign unidades = site.unidades
+| where: "asignatura", page.asignatura
+| sort: "orden" %}
+
+{% assign anterior = nil %}
+{% assign siguiente = nil %}
+{% assign encontrada = false %}
+
+{% for unidad in unidades %}
+
+{% if encontrada %}
+{% assign siguiente = unidad %}
+{% break %}
+{% endif %}
+
+{% if unidad.url == page.url %}
+{% assign encontrada = true %}
+{% else %}
+{% assign anterior = unidad %}
+{% endif %}
+
+{% endfor %}
+
+<section class="lesson-page">
+
+    <a class="back-link" href="{{ '/asignaturas/' | append: page.asignatura | append: '/' | relative_url }}">
+        ← Volver a la asignatura
+    </a>
+
+    <div class="lesson-header">
+
+        <span class="section-kicker">
+            {{ page.asignatura | replace: "-", " " | upcase }}
+        </span>
+
+        <span class="lesson-number">
+            UNIDAD {{ page.orden }}
+        </span>
+
+        <h1>{{ page.title }}</h1>
+
+        <p>{{ page.description }}</p>
+
+    </div>
+
+    <nav class="lesson-index" aria-label="Índice de unidades">
+
+        <h2>Unidades de la asignatura</h2>
+
+        <ol>
+            {% for unidad in unidades %}
+            <li>
+                <a href="{{ unidad.url | relative_url }}" {% if unidad.url==page.url %}aria-current="page" {% endif %}>
+                    <span>Unidad {{ unidad.orden }}</span>
+                    {{ unidad.title }}
+                </a>
+            </li>
+            {% endfor %}
+        </ol>
+
+    </nav>
+
+    <article class="lesson-content">
+        {{ content }}
+    </article>
+
+    <nav class="lesson-navigation" aria-label="Navegación entre unidades">
+
+        {% if anterior %}
+        <a class="lesson-nav-card" href="{{ anterior.url | relative_url }}">
+            <span>← Unidad anterior</span>
+            <strong>{{ anterior.title }}</strong>
+        </a>
+        {% else %}
+        <div></div>
+        {% endif %}
+
+        {% if siguiente %}
+        <a class="lesson-nav-card next" href="{{ siguiente.url | relative_url }}">
+            <span>Unidad siguiente →</span>
+            <strong>{{ siguiente.title }}</strong>
+        </a>
+        {% endif %}
+
+    </nav>
+
+</section>
