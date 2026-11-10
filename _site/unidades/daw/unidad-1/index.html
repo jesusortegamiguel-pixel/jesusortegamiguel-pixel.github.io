@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            }
+        };
+    </script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+
+    <title>
+        
+        Servicio de aplicaciones y Podman | Recursos Educativos Interactivos
+        
+    </title>
+
+    <meta name="description" content="Plataforma educativa de apuntes, temarios y ejercicios interactivos">
+
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- Estilos de ejercicios -->
+    <link rel="stylesheet" href="/assets/css/quiz.css">
+    <link rel="stylesheet" href="/assets/css/consola-js.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+
+
+    <!-- Aplicar el tema antes de mostrar la página -->
+    <script>
+        (function () {
+            try {
+                const tema = localStorage.getItem("aula-theme");
+                if (tema === "dark" || tema === "light") {
+                    document.documentElement.setAttribute("data-theme", tema);
+                }
+            } catch (error) { }
+        })();
+    </script>
+</head>
+
+<body>
+
+    
+<header class="site-header">
+  <div class="header-container">
+
+    <a class="site-logo" href="/">
+      <span class="logo-icon">🎓</span>
+      <span>Recursos Educativos Interactivos</span>
+    </a>
+
+    <div class="header-actions">
+
+      <nav class="main-nav">
+        <a href="/">Inicio</a>
+        <a href="/#asignaturas">
+          Asignaturas
+        </a>
+      </nav>
+
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Activar modo oscuro">
+
+        <span id="theme-icon" aria-hidden="true">🌙</span>
+
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+
+    <main class="main-content">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="lesson-page">
+
+    <a class="back-link" href="/asignaturas/daw/">
+        ← Volver a la asignatura
+    </a>
+
+    <div class="lesson-header">
+
+        <span class="section-kicker">
+            DAW
+        </span>
+
+        <span class="lesson-number">
+            UNIDAD 1
+        </span>
+
+        <h1>Servicio de aplicaciones y Podman</h1>
+
+        <p>Introducción a despliegue de aplicaciones</p>
+
+    </div>
+
+    <nav class="lesson-index" aria-label="Índice de unidades">
+
+        <h2>Unidades de la asignatura</h2>
+
+        <ol>
+            
+            <li>
+                <a href="/unidades/daw/unidad-1/" aria-current="page" >
+                    <span>Unidad 1</span>
+                    Servicio de aplicaciones y Podman
+                </a>
+            </li>
+            
+        </ol>
+
+    </nav>
+
+    <article class="lesson-content">
+        <h1 id="unidad-1-servicio-de-aplicaciones-y-podman">Unidad 1. Servicio de aplicaciones y Podman</h1>
+
+<h2 id="1-introducción">1. Introducción</h2>
+<p>El despliegue de aplicaciones web (deployment, en inglés) es el proceso de trasladar una aplicación desde el entorno de desarrollo local (la computadora del programador) a un entorno de producción (un servidor físico o en la nube) para que los usuarios finales puedan acceder a ella a través de internet mediante una URL.</p>
+
+<p>No se trata únicamente de copiar y pegar archivos, sino de configurar todos los elementos necesarios para que el sistema funcione de forma estable, segura y escalable.</p>
+
+<h2 id="2-actividades-clave-del-despliegue">2. Actividades clave del despliegue</h2>
+
+<ul>
+  <li>
+    <p><strong>Configuración del servidor</strong>: Preparar el sistema operativo, los servidores web (como Nginx o Apache) y los intérpretes o motores de ejecución.</p>
+  </li>
+  <li>
+    <p><strong>Gestión de dependencias</strong>: Instalar las librerías, frameworks y paquetes necesarios para que el código se ejecute correctamente.</p>
+  </li>
+  <li>
+    <p><strong>Configuración de bases de datos</strong>: Conectar, migrar y asegurar los esquemas de datos que la aplicación utiliza.</p>
+  </li>
+  <li>
+    <p><strong>Seguridad y redes</strong>: Implementar certificados SSL/TLS (HTTPS), reglas de firewall, gestión de puertos y variables de entorno sensibles.</p>
+  </li>
+  <li>
+    <p><strong>Automatización (CI/CD)</strong>: Utilizar integración y despliegue continuo para actualizar la aplicación de forma automática cada vez que se modifica el código.</p>
+  </li>
+</ul>
+
+<p>En este tema nos vamos a centrar en la configuración del servidor mediante <a href="https://podman.io/">Podman</a></p>
+
+<h2 id="3-instalación-de-podman">3. Instalación de Podman</h2>
+
+<p>Podman es un gestor de contenedores, pods e imágenes. Permite la creación de un entorno aislado de máquinas virtuales con los requisitos mínimos para la ejecución de un programa.</p>
+
+<p>Vamos a instalar podman, para ello será preciso descargar el ejecutable de la <a href="https://podman.io/">página oficial</a></p>
+
+<figure class="unidad-figure">
+  <img src="/assets/images/daw/unidad-1/01_podman_download.png" alt="Arquitectura de Podman" />
+  <figcaption>
+    Figura 1. Página oficial Podman.
+  </figcaption>
+</figure>
+
+<p>Una vez descargado ejecutaremos el instalador seleccionando la opción “Windows Linus Subsystem (WSLv2)</p>
+
+<figure class="unidad-figure">
+  <img src="/assets/images/daw/unidad-1/02_podman_wizard.png" alt="Arquitectura de Podman" />
+  <figcaption>
+    Figura 2. Podman CLI Setup.
+  </figcaption>
+</figure>
+
+<p>Para finalizar la instalación haremos click en “Finish”.</p>
+
+<figure class="unidad-figure">
+  <img src="/assets/images/daw/unidad-1/03_podman_wizard.png" alt="Arquitectura de Podman" />
+  <figcaption>
+    Figura 3. Podman CLI Setup.
+  </figcaption>
+</figure>
+
+<p>Comprobaremos que la instalación es correcta ejecutando el siguiente comando en la línea de comandos del sistema “cmd” en caso de Windows.</p>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Comprobar versión de Podman</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar comandos
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>podman -v</code></pre>
+    </div>
+    
+
+    
+    <div class="terminal-output">
+      <pre>podman version 6.1.4</pre>
+    </div>
+    
+  </div>
+</div>
+
+<p>Con esto habremos concluido la instalación de Podman. En la próxima unidad veremos los comandos básicos para la manipulación de imagenes y contenedores con Podman.</p>
+
+    </article>
+
+    <nav class="lesson-navigation" aria-label="Navegación entre unidades">
+
+        
+        <div></div>
+        
+
+        
+
+    </nav>
+
+</section>
+    </main>
+
+    
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <strong>Recursos Educativos Interactivos</strong>
+      <p>Un espacio para aprender, practicar y avanzar.</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        © 2026
+        Jesús Ortega.
+        Todos los derechos reservados.
+      </p>
+      <p>Plataforma educativa</p>
+    </div>
+
+  </div>
+</footer>
+
+
+    <!-- Sistema de ejercicios -->
+    <script src="/assets/js/ejercicios.js" defer></script>
+
+    <!-- Sistema de temas -->
+    <script src="/assets/js/theme.js" defer></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+    <script src="/assets/js/editor-js.js" defer></script>
+    <script src="/assets/js/consola-js.js" defer></script>
+
+
+</body>
+
+</html>

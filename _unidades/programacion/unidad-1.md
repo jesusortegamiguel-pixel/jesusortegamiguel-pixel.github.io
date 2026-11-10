@@ -6,11 +6,7 @@ asignatura: programacion
 orden: 1
 ---
 
-<a class="back-link" href="{{ '/asignaturas/programacion/' | relative_url }}">
-  ← Volver a Programación
-</a>
-
-# Unidad 1. El programa
+# Unidad 1. {{page.title}}
 
 ## 1. Introducción
 

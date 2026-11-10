@@ -1,5 +1,9 @@
-
 - nombre: Programación
   slug: programacion
   descripcion: Temarios, apuntes y ejercicios de programación.
   icono: "💻"
+
+- nombre: Despliegue de Aplicaciones Web
+  slug: daw
+  descripcion: Temarios, apuntes y ejercicios de Despliegue de Aplicaciones Web.
+  icono: "🌐"

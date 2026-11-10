@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            }
+        };
+    </script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+
+    <title>
+        
+        Despliegue de Aplicaciones Web | Recursos Educativos Interactivos
+        
+    </title>
+
+    <meta name="description" content="Plataforma educativa de apuntes, temarios y ejercicios interactivos">
+
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- Estilos de ejercicios -->
+    <link rel="stylesheet" href="/assets/css/quiz.css">
+    <link rel="stylesheet" href="/assets/css/consola-js.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+
+
+    <!-- Aplicar el tema antes de mostrar la página -->
+    <script>
+        (function () {
+            try {
+                const tema = localStorage.getItem("aula-theme");
+                if (tema === "dark" || tema === "light") {
+                    document.documentElement.setAttribute("data-theme", tema);
+                }
+            } catch (error) { }
+        })();
+    </script>
+</head>
+
+<body>
+
+    
+<header class="site-header">
+  <div class="header-container">
+
+    <a class="site-logo" href="/">
+      <span class="logo-icon">🎓</span>
+      <span>Recursos Educativos Interactivos</span>
+    </a>
+
+    <div class="header-actions">
+
+      <nav class="main-nav">
+        <a href="/">Inicio</a>
+        <a href="/#asignaturas">
+          Asignaturas
+        </a>
+      </nav>
+
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Activar modo oscuro">
+
+        <span id="theme-icon" aria-hidden="true">🌙</span>
+
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+
+    <main class="main-content">
+        <section class="subject-page">
+
+  <a class="back-link" href="/">
+    ← Volver al inicio
+  </a>
+
+  <header class="subject-hero">
+
+    <div class="subject-hero-icon">
+      🌐
+    </div>
+
+    <div class="subject-hero-info">
+
+      <span class="section-kicker">AULA VIRTUAL</span>
+
+      <h1>Despliegue de Aplicaciones Web</h1>
+
+      <p>Temarios, apuntes y ejercicios de Despliegue de Aplicaciones Web.</p>
+
+    </div>
+
+  </header>
+
+  <section class="section">
+
+    <div class="section-heading">
+      <span class="section-kicker">PROGRAMA DE ESTUDIO</span>
+      <h2>Unidades didácticas</h2>
+      <p>Accede a los contenidos y actividades de cada unidad.</p>
+    </div>
+
+    <div class="unit-grid">
+
+      
+
+      
+
+      
+
+        
+
+          <article class="unit-card">
+
+            <div class="unit-number">
+              UNIDAD 1
+            </div>
+
+            <h3>Servicio de aplicaciones y Podman</h3>
+
+            <p>Introducción a despliegue de aplicaciones</p>
+
+            <a href="/unidades/daw/unidad-1/"
+               class="resource-link">
+              Acceder a la unidad →
+            </a>
+
+          </article>
+
+        
+
+      
+
+    </div>
+
+  </section>
+
+</section>
+
+    </main>
+
+    
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <strong>Recursos Educativos Interactivos</strong>
+      <p>Un espacio para aprender, practicar y avanzar.</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        © 2026
+        Jesús Ortega.
+        Todos los derechos reservados.
+      </p>
+      <p>Plataforma educativa</p>
+    </div>
+
+  </div>
+</footer>
+
+
+    <!-- Sistema de ejercicios -->
+    <script src="/assets/js/ejercicios.js" defer></script>
+
+    <!-- Sistema de temas -->
+    <script src="/assets/js/theme.js" defer></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+    <script src="/assets/js/editor-js.js" defer></script>
+    <script src="/assets/js/consola-js.js" defer></script>
+
+
+</body>
+
+</html>

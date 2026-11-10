@@ -1,4 +1,3 @@
-
 /* ========================================
    1. VARIABLES GENERALES
 ======================================== */
@@ -14,6 +13,8 @@
   --primary: #3157d5;
   --primary-dark: #2443ad;
   --secondary: #eef2ff;
+  --accent: #f0c133;
+  --accent-hover: #df7f12;
 
   --background: #f6f8fc;
   --surface: #ffffff;
@@ -87,9 +88,15 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--accent);
   text-decoration: none;
+  transition: color 0.2s;
 }
+
+a:hover {
+  color: var(--accent-hover);
+}
+
 
 .main-content {
   width: min(1150px, 92%);
@@ -168,7 +175,7 @@ a {
 
   background:
     radial-gradient(circle at 90% 10%,
-      rgba(255,255,255,0.2), transparent 30%),
+      rgba(255, 255, 255, 0.2), transparent 30%),
     linear-gradient(120deg, #253f9f, #4268e5);
 
   color: white;
@@ -180,7 +187,7 @@ a {
   padding: 7px 13px;
   border-radius: 30px;
 
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 1.5px;
@@ -196,7 +203,7 @@ a {
 .hero p {
   max-width: 620px;
   margin: 0;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 17px;
 }
 
@@ -249,7 +256,7 @@ a {
 
   box-shadow: var(--shadow);
   transition: transform 0.2s, box-shadow 0.2s,
-              border-color 0.2s;
+    border-color 0.2s;
 }
 
 .subject-card:hover {
@@ -321,7 +328,7 @@ a {
 
   margin-top: 30px;
   padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 
   color: #b7c0d0;
   font-size: 12px;
@@ -428,7 +435,7 @@ a {
 [data-theme="dark"] .hero {
   background:
     radial-gradient(circle at 90% 10%,
-      rgba(255,255,255,0.12), transparent 30%),
+      rgba(255, 255, 255, 0.12), transparent 30%),
     linear-gradient(120deg, #172554, #304b9c);
 }
 
@@ -864,4 +871,109 @@ a {
     font-size: 14px;
   }
 
+}
+
+.unidad-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 25px 0;
+
+}
+
+.unidad-figure img {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+
+.terminal-block {
+  margin: 1.5rem 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #1e1e1e;
+  color: #f1f1f1;
+  box-shadow: 0 3px 10px rgba(0,0,0,.15);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #303030;
+  color: #ccc;
+  font-size: .85rem;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.terminal-dots span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ff5f56;
+}
+
+.terminal-dots span:nth-child(2) {
+  background: #ffbd2e;
+}
+
+.terminal-dots span:nth-child(3) {
+  background: #27c93f;
+}
+
+.terminal-copy {
+  margin-left: auto;
+  padding: 5px 12px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.terminal-copy:hover {
+  background: #505050;
+}
+
+.terminal-body {
+  padding: 16px;
+  overflow-x: auto;
+}
+
+.terminal-command {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: #9cdcfe;
+}
+
+.terminal-prompt {
+  color: #4ec9b0;
+  font-weight: bold;
+  user-select: none;
+}
+
+.terminal-command pre,
+.terminal-output pre {
+  margin: 0;
+  font-family: "Fira Code", Consolas, monospace;
+  font-size: .9rem;
+  line-height: 1.6;
+  white-space: pre;
+}
+
+.terminal-output {
+  margin-top: 10px;
+  padding-left: 20px;
+  color: #d4d4d4;
+}
+
+.terminal-command code {
+  color: #9cdcfe;
 }
