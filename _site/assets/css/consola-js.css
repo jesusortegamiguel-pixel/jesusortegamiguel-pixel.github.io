@@ -1,0 +1,229 @@
+
+.js-console {
+  background: #111827;
+  color: #e5e7eb;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 25px 0;
+  font-family: Consolas, Monaco, monospace;
+  box-shadow: 0 8px 25px rgba(0,0,0,.15);
+}
+
+.js-console-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 13px 16px;
+  background: #1f2937;
+  border-bottom: 1px solid #374151;
+}
+
+.js-console-lights {
+  display: flex;
+  gap: 6px;
+}
+
+.js-console-lights span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ef4444;
+}
+
+.js-console-lights span:nth-child(2) {
+  background: #eab308;
+}
+
+.js-console-lights span:nth-child(3) {
+  background: #22c55e;
+}
+
+.js-console-title {
+  font-size: 13px;
+  color: #d1d5db;
+}
+
+.js-console-language {
+  margin-left: auto;
+  font-size: 11px;
+  color: #60a5fa;
+}
+
+.js-console-description,
+.js-console-editor,
+.js-console-output-area {
+  padding: 16px;
+}
+
+.js-console-label {
+  color: #9ca3af;
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.js-console-code {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 230px;
+  resize: vertical;
+  padding: 15px;
+  border: 1px solid #374151;
+  border-radius: 7px;
+  outline: none;
+  background: #030712;
+  color: #a7f3d0;
+  font: 14px/1.7 Consolas, Monaco, monospace;
+  tab-size: 2;
+}
+
+.js-console-code:focus {
+  border-color: #3b82f6;
+}
+
+.js-console-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0 16px 16px;
+}
+
+.js-console-actions button {
+  border: 0;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.js-console-run {
+  background: #16a34a;
+  color: white;
+}
+
+.js-console-run:hover {
+  background: #15803d;
+}
+
+.js-console-run:disabled {
+  opacity: .5;
+  cursor: wait;
+}
+
+.js-console-clear {
+  background: #374151;
+  color: #e5e7eb;
+}
+
+.js-console-clear:hover {
+  background: #4b5563;
+}
+
+.js-console-output-area {
+  background: #030712;
+  border-top: 1px solid #374151;
+}
+
+.js-console-output {
+  min-height: 90px;
+  max-height: 300px;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: #d1d5db;
+  font: 13px/1.7 Consolas, Monaco, monospace;
+  margin: 0;
+}
+
+.js-console-output .output-error {
+  color: #f87171;
+}
+
+.js-console-output .output-warn {
+  color: #fbbf24;
+}
+
+.js-console-output .output-success {
+  color: #4ade80;
+}
+
+.js-console-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 16px;
+  background: #1f2937;
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+@media (max-width: 600px) {
+  .js-console-code {
+    min-height: 190px;
+    font-size: 12px;
+  }
+
+  .js-console-footer {
+    flex-direction: column;
+  }
+}
+
+/* Editor CodeMirror */
+.js-console .CodeMirror {
+  min-height: 180px;
+  height: auto;
+  max-height: 450px;
+  font-family: "Fira Code", Consolas, monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  border-radius: 0 0 8px 8px;
+  text-align: left;
+}
+
+/* Colores del código JavaScript */
+.js-console .CodeMirror .cm-keyword {
+  color: #c792ea;
+}
+
+.js-console .CodeMirror .cm-variable {
+  color: #82aaff;
+}
+
+.js-console .CodeMirror .cm-def {
+  color: #ffcb6b;
+}
+
+.js-console .CodeMirror .cm-string {
+  color: #c3e88d;
+}
+
+.js-console .CodeMirror .cm-number {
+  color: #f78c6c;
+}
+
+.js-console .CodeMirror .cm-comment {
+  color: #676e95;
+  font-style: italic;
+}
+
+.js-console .CodeMirror .cm-operator {
+  color: #89ddff;
+}
+
+.js-console .CodeMirror .cm-property {
+  color: #f07178;
+}
+
+.js-console .CodeMirror .cm-atom {
+  color: #ff5370;
+}
+
+.js-console .CodeMirror-gutters {
+  border-right: 1px solid #303744;
+}
+
+.js-console .CodeMirror-linenumber {
+  color: #697386;
+}

@@ -1,0 +1,44 @@
+
+{% assign codigo_inicial = include.codigo | default: 'console.log("¡Hola, mundo!");' %}
+{% assign titulo = include.titulo | default: "JavaScript Console" %}
+
+<div class="js-console" data-js-console>
+    <div class="js-console-header">
+        <div class="js-console-lights">
+            <span></span><span></span><span></span>
+        </div>
+        <span class="js-console-title">{{ titulo }}</span>
+        <span class="js-console-language">JS</span>
+    </div>
+
+    {% if include.descripcion %}
+    <div class="js-console-description">
+        {{ include.descripcion }}
+    </div>
+    {% endif %}
+
+    <div class="js-console-editor">
+        <div class="js-console-label">EDITOR</div>
+        <textarea class="js-console-code" spellcheck="false" autocapitalize="off" autocomplete="off"
+            aria-label="Editor de código JavaScript">{{ codigo_inicial | escape }}</textarea>
+    </div>
+
+    <div class="js-console-actions">
+        <button type="button" class="js-console-run" disabled>
+            ▶ Ejecutar
+        </button>
+        <button type="button" class="js-console-clear">
+            Limpiar consola
+        </button>
+    </div>
+
+    <div class="js-console-output-area">
+        <div class="js-console-label">CONSOLA</div>
+        <pre class="js-console-output" aria-live="polite">Esperando código...</pre>
+    </div>
+
+    <div class="js-console-footer">
+        <span>JavaScript</span>
+        <span>Entorno de ejecución aislado</span>
+    </div>
+</div>

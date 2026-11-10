@@ -31,6 +31,12 @@
 
     <!-- Estilos de ejercicios -->
     <link rel="stylesheet" href="/assets/css/quiz.css">
+    <link rel="stylesheet" href="/assets/css/consola-js.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+
 
     <!-- Aplicar el tema antes de mostrar la página -->
     <script>
@@ -156,6 +162,49 @@
   <li><strong>Ejecución:</strong>  El procesador central ejecuta las órdenes paso a paso para ofrecer un resultado o una interfaz interactiva al usuario.</li>
 </ul>
 
+<h2 id="3-ejemplo-de-programa">3. Ejemplo de programa</h2>
+
+<div class="js-console" data-js-console="">
+    <div class="js-console-header">
+        <div class="js-console-lights">
+            <span></span><span></span><span></span>
+        </div>
+        <span class="js-console-title">Ejercicio 1 - Hola mundo</span>
+        <span class="js-console-language">JS</span>
+    </div>
+
+    
+    <div class="js-console-description">
+        Muestra un mensaje por pantalla.
+    </div>
+    
+
+    <div class="js-console-editor">
+        <div class="js-console-label">EDITOR</div>
+        <textarea class="js-console-code" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Editor de código JavaScript">console.log(&quot;Hola, mundo&quot;);</textarea>
+    </div>
+
+    <div class="js-console-actions">
+        <button type="button" class="js-console-run" disabled="">
+            ▶ Ejecutar
+        </button>
+        <button type="button" class="js-console-clear">
+            Limpiar consola
+        </button>
+    </div>
+
+    <div class="js-console-output-area">
+        <div class="js-console-label">CONSOLA</div>
+        <pre class="js-console-output" aria-live="polite">Esperando código...</pre>
+    </div>
+
+    <div class="js-console-footer">
+        <span>JavaScript</span>
+        <span>Entorno de ejecución aislado</span>
+    </div>
+</div>
+
+
     </article>
 
     <nav class="lesson-navigation" aria-label="Navegación entre unidades">
@@ -198,6 +247,12 @@
 
     <!-- Sistema de temas -->
     <script src="/assets/js/theme.js" defer></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+    <script src="/assets/js/editor-js.js" defer></script>
+    <script src="/assets/js/consola-js.js" defer></script>
+
 
 </body>
 

@@ -23,3 +23,11 @@ La creación de un programa puede resumirse en tres pasos:
 - **Código fuente:** el programador escribe las instrucciones en un lenguaje legible para los humanos (como Python, Java o C).
 - **Traducción o compilación:** Esas instrucciones se procesan para que la computadora las entienda en su propio lenguaje de máquina (ceros y unos).
 - **Ejecución:**  El procesador central ejecuta las órdenes paso a paso para ofrecer un resultado o una interfaz interactiva al usuario.
+
+## 3. Ejemplo de programa
+{% include consola-js.html
+   titulo="Ejercicio 1 - Hola mundo"
+   descripcion="Muestra un mensaje por pantalla."
+   codigo='console.log("Hola, mundo");'
+%}
+
