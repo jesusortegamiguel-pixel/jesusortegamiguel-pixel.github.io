@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            }
+        };
+    </script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+
+    <title>
+        
+        Comandos básicos de Podman | Recursos Educativos Interactivos
+        
+    </title>
+
+    <meta name="description" content="Plataforma educativa de apuntes, temarios y ejercicios interactivos">
+
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- Estilos de ejercicios -->
+    <link rel="stylesheet" href="/assets/css/quiz.css">
+    <link rel="stylesheet" href="/assets/css/consola-js.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+
+
+    <!-- Aplicar el tema antes de mostrar la página -->
+    <script>
+        (function () {
+            try {
+                const tema = localStorage.getItem("aula-theme");
+                if (tema === "dark" || tema === "light") {
+                    document.documentElement.setAttribute("data-theme", tema);
+                }
+            } catch (error) { }
+        })();
+    </script>
+</head>
+
+<body>
+
+    
+<header class="site-header">
+  <div class="header-container">
+
+    <a class="site-logo" href="/">
+      <span class="logo-icon">🎓</span>
+      <span>Recursos Educativos Interactivos</span>
+    </a>
+
+    <div class="header-actions">
+
+      <nav class="main-nav">
+        <a href="/">Inicio</a>
+        <a href="/#asignaturas">
+          Asignaturas
+        </a>
+      </nav>
+
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Activar modo oscuro">
+
+        <span id="theme-icon" aria-hidden="true">🌙</span>
+
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+
+    <main class="main-content">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="lesson-page">
+
+    <a class="back-link" href="/asignaturas/daw/">
+        ← Volver a la asignatura
+    </a>
+
+    <div class="lesson-header">
+
+        <span class="section-kicker">
+            DAW
+        </span>
+
+        <span class="lesson-number">
+            UNIDAD 2
+        </span>
+
+        <h1>Comandos básicos de Podman</h1>
+
+        <p>Comandos más comunes y usados para la configuración y gestión de contenedores en Podman</p>
+
+    </div>
+
+    <nav class="lesson-index" aria-label="Índice de unidades">
+
+        <h2>Unidades de la asignatura</h2>
+
+        <ol>
+            
+            <li>
+                <a href="/unidades/daw/unidad-1/" >
+                    <span>Unidad 1</span>
+                    Servicio de aplicaciones y Podman
+                </a>
+            </li>
+            
+            <li>
+                <a href="/unidades/daw/unidad-2/" aria-current="page" >
+                    <span>Unidad 2</span>
+                    Comandos básicos de Podman
+                </a>
+            </li>
+            
+        </ol>
+
+    </nav>
+
+    <article class="lesson-content">
+        <h1 id="unidad-2-comandos-básicos-de-podman">Unidad 2. Comandos básicos de Podman</h1>
+
+<h2 id="1-introducción">1. Introducción</h2>
+<p>En este tema daremos una vuelta por los comandos básicos de obtención de imágenes desde el repositorio oficial de Docker. Así mismo aprenderemos a gestionar estas imágenes y crear contenedores con ellas.</p>
+
+<h2 id="2-comandos-para-imagenes">2. Comandos para imagenes</h2>
+
+<p>Una imagen es una plantilla estática, inmutable y de solo lectura que contiene todo lo necesario para ejecutar una aplicación: el código fuente, el entorno de ejecución, las bibliotecas, las variables de entorno y los archivos de configuración.</p>
+
+<h3 id="obtención-de-una-imagen">Obtención de una imagen</h3>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Obtener una imagen</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>podman pull &lt;imagen&gt;:&lt;etiqueta&gt;</code></pre>
+    </div>
+    
+
+    
+  </div>
+</div>
+
+<p>Vamos a descargar la imagen Alpine, esta imagen contiene una versión minimalista de Alpine Linux.</p>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Obteniendo Alpine</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>podman pull docker.io/library/alpine:latest</code></pre>
+    </div>
+    
+
+    
+    <div class="terminal-output">
+      <pre>Trying to pull docker.io/library/alpine:latest...
+Getting image source signatures
+Copying blob sha256:881fc932939efef04ca120ad44bbd2c0917851eb247aa4995428afb1e80ede17
+Copying config sha256:3ea06e4cb95e726ea6c6cc4377570ac4c4050d78710004cbd631ca809daf7e8e
+Writing manifest to image destination
+3ea06e4cb95e726ea6c6cc4377570ac4c4050d78710004cbd631ca809daf7e8e</pre>
+    </div>
+    
+  </div>
+</div>
+
+<h3 id="lista-de-imágenes-locales">Lista de imágenes locales</h3>
+
+<p>Para ver las imágenes que hemos descargado ejecutaremos:</p>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Listado de imágenes</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>podman image ls</code></pre>
+    </div>
+    
+
+    
+    <div class="terminal-output">
+      <pre>REPOSITORY                TAG         IMAGE ID      CREATED     SIZE
+docker.io/library/alpine  latest      3ea06e4cb95e  5 days ago  8.73 MB</pre>
+    </div>
+    
+  </div>
+</div>
+
+<p>En el listado se muestras los siguientes datos informativos:</p>
+
+<ul>
+  <li>
+    <p><strong>REPOSITORY</strong>: Dirección de obtención de la imagen.</p>
+  </li>
+  <li>
+    <p><strong>TAG</strong>: Versión de etiquetado de la imagen, <em>latest</em> indica que se está usando la última versión disponible.</p>
+  </li>
+  <li>
+    <p><strong>IMAGE ID</strong>: Hash identificador de la imagen.</p>
+  </li>
+  <li>
+    <p><strong>CREATED</strong>: Fecha de construcción de la imagen.</p>
+  </li>
+  <li>
+    <p><strong>SIZE</strong>: Tamaño de la imagen (como podemos ver es un tamaño ínfimo).</p>
+  </li>
+</ul>
+
+<h3 id="borrar-imagen">Borrar imagen</h3>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Borrado de imágenes</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>podman image rm &lt;image_id&gt;</code></pre>
+    </div>
+    
+
+    
+  </div>
+</div>
+
+<h2 id="3-comandos-para-contenedores">3. Comandos para contenedores</h2>
+
+<p>Un contenedor es  es una instancia ejecutable y aislada de una imagen de Docker que empaqueta una aplicación junto con su código, librerías, dependencias y archivos de configuración necesarios para funcionar.</p>
+
+<p>Para crear la instancia de una imagen debemos especificar qué proceso queremos que el contenedor esté ejecutando. Usaremos “shell” para este ejemplo. Como “shell” no es un proceso que vaya a perdurar ya que al recibir un EOF el proceso finaliza. Para ello mantendremos la consola en marcha mediante el parámetro <code class="language-plaintext highlighter-rouge">-it</code> de forma que nos permita <strong>interactuar</strong> con el contenedor.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-i</code>: mantiene abierta la entrada estándar (stdin).</p>
+
+<p><code class="language-plaintext highlighter-rouge">-t</code>: asigna una terminal virtual (TTY).</p>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Instanciación de un contenedor</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>podman run &lt;imagen&gt; &lt;proceso&gt;</code></pre>
+    </div>
+    
+
+    
+  </div>
+</div>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Instanciación de un contenedor</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>podman run -it docker.io/library/alpine sh</code></pre>
+    </div>
+    
+
+    
+    <div class="terminal-output">
+      <pre>/ #</pre>
+    </div>
+    
+  </div>
+</div>
+
+<p>Cuando veamos la almohadilla <strong>#</strong> querrá decir que estamos dentro del contenedor e interactuando con el <em>shell</em> de la instancia.</p>
+
+<p>Podemos comprobar que estamos dentro de la máquina Linux comprobando su versión de kernel:</p>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Comprobar versión del kernel</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>uname -a</code></pre>
+    </div>
+    
+
+    
+    <div class="terminal-output">
+      <pre>Linux b6dc3b3b1d76 6.18.58.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct 27 00:24:11 UTC 2026 x86_64 Linux</pre>
+    </div>
+    
+  </div>
+</div>
+
+<h3 id="listado-de-contenedores-activos">Listado de contenedores activos</h3>
+
+<p>Como tenemos el terminal ocupado con la ejecución del <em>shell</em> del contenedor, vamos a <strong>abrir un nuevo terminal</strong>.</p>
+
+<p>En el nuevo terminal vamos a comprobar que nuestro contenedor está siendo ejecutado, para ello obtendremos la lista de contenedores en ejecución.</p>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Lista de contenedores en ejecución</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>podman ps</code></pre>
+    </div>
+    
+
+    
+    <div class="terminal-output">
+      <pre>CONTAINER ID  IMAGE                            COMMAND     CREATED        STATUS        PORTS       NAMES
+8c499cc92452  docker.io/library/alpine:latest  sh          4 seconds ago  Up 5 seconds              heuristic_bardeen</pre>
+    </div>
+    
+  </div>
+</div>
+
+<p>También podemos usar el comando</p>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Lista de contenedores en ejecución</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>podman container ls</code></pre>
+    </div>
+    
+
+    
+    <div class="terminal-output">
+      <pre>CONTAINER ID  IMAGE                            COMMAND     CREATED        STATUS        PORTS       NAMES
+8c499cc92452  docker.io/library/alpine:latest  sh          4 seconds ago  Up 5 seconds              heuristic_bardeen</pre>
+    </div>
+    
+  </div>
+</div>
+
+<p>La respuesta del comando nos dará la información del contenedor:</p>
+
+<ul>
+  <li>
+    <p><strong>CONTAINER ID</strong>: Hash identificador del contenedor.</p>
+  </li>
+  <li>
+    <p><strong>IMAGE</strong>: Imagen de la que se está ejecutando esta instancia.</p>
+  </li>
+  <li>
+    <p><strong>COMMAND</strong>: Comando que se está ejecutando.</p>
+  </li>
+  <li>
+    <p><strong>CREATED</strong>: Momento de creación del contenedor.</p>
+  </li>
+  <li>
+    <p><strong>STATUS</strong>: Estado actual del contenedor (En este caso indica que está en marcha).</p>
+  </li>
+  <li>
+    <p><strong>PORTS</strong>: Puertos que se están mapeando, veremos esto con más detalle cuando creemos una instancia de una imagen Nginx.</p>
+  </li>
+  <li>
+    <p><strong>NAMES</strong>: Nombre de la imagen, como no hemos definido ninguno Podman ha generado uno aleatorio.</p>
+  </li>
+</ul>
+
+<h3 id="detener-un-contenedor">Detener un contenedor</h3>
+
+<p>Detener el contenedor implica poner fin a la ejecución del programa de la instancia. Esto no eliminará el contenedor, simplemente finalizará el proceso activo. Para ello podemos utilizar tanto el <code class="language-plaintext highlighter-rouge">CONTAINER_ID</code> <strong>8c499cc92452</strong> como el <code class="language-plaintext highlighter-rouge">NAME</code> <strong>heuristic_bardeen</strong></p>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Detención de un contenedor</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>podman container stop &lt;container_id | name&gt;</code></pre>
+    </div>
+    
+
+    
+  </div>
+</div>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Detención de un contenedor</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>podman container stop 8c499cc92452</code></pre>
+    </div>
+    
+
+    
+    <div class="terminal-output">
+      <pre>8c499cc92452</pre>
+    </div>
+    
+  </div>
+</div>
+
+<p>Al detener el contenedor Podman responderá con el <code class="language-plaintext highlighter-rouge">CONTAINER_ID</code> del contenedor detenido. Si volvemos a mostrar la lista de contenedores en marcha, deberíamos ver una lista vacía.</p>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Lista de contenedores en ejecución</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>podman ps</code></pre>
+    </div>
+    
+
+    
+    <div class="terminal-output">
+      <pre>CONTAINER ID  IMAGE  COMMAND     CREATED        STATUS        PORTS       NAMES</pre>
+    </div>
+    
+  </div>
+</div>
+
+<p>Sin embargo antes hemos mencionado que la instancia no desaparecía, únicamente se finalizaba su ejecución. El contenedor detenido mantiene su estado tras la detención conservando los cambio realizados es él para su siguiente ejecución.</p>
+
+<p>Si queremos ver la lista de contenedores incluyendo los deberemos especificar que se muestre la lista completa de contenedores mediante el parámetro <code class="language-plaintext highlighter-rouge">-a</code>.</p>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Lista completa de contenedores</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>podman container ls -a</code></pre>
+    </div>
+    
+
+    
+    <div class="terminal-output">
+      <pre>CONTAINER ID  IMAGE                            COMMAND     CREATED         STATUS                      PORTS       NAMES
+8c499cc92452  docker.io/library/alpine:latest  sh          12 minutes ago  Exited (137) 6 minutes ago              heuristic_bardeen</pre>
+    </div>
+    
+  </div>
+</div>
+
+<p>En esta lista observamos que el <code class="language-plaintext highlighter-rouge">STATUS</code> del contenedor es <code class="language-plaintext highlighter-rouge">Exited (137) 6 minutes ago</code> indicando que el contenedor ha sido detenido.</p>
+
+<h3 id="eliminar-un-contenedor">Eliminar un contenedor</h3>
+
+<p>Si queremos deshacernos por completo del contenedor ejecutaremos</p>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Lista completa de contenedores</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>podman container &lt;container_id | name&gt;</code></pre>
+    </div>
+    
+
+    
+  </div>
+</div>
+
+<div class="terminal-block">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <span>Lista completa de contenedores</span>
+
+    <button class="terminal-copy" type="button" onclick="
+        const code = this.closest('.terminal-block')
+          .querySelectorAll('.terminal-command code');
+        const text = Array.from(code)
+          .map(el =&gt; el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() =&gt; {
+          this.textContent = 'Copiado';
+          setTimeout(() =&gt; this.textContent = 'Copiar', 2000);
+        });
+      ">
+      Copiar
+    </button>
+  </div>
+
+  <div class="terminal-body">
+    
+    <div class="terminal-command">
+      <span class="terminal-prompt">$</span>
+      <pre><code>podman container rm 8c499cc92452</code></pre>
+    </div>
+    
+
+    
+    <div class="terminal-output">
+      <pre>8c499cc92452</pre>
+    </div>
+    
+  </div>
+</div>
+
+<h2 id="4-posibles-problemas-durante-la-práctica">4. Posibles problemas durante la práctica</h2>
+
+<h3 id="error-al-eliminar-una-imagen">Error al eliminar una imagen</h3>
+
+<p>Las imágenes únicamente se pueden eliminar si no existe una instancia de la misma en el ordenador. Si queremos eliminar la imagen local primero debemos eliminar los contenedores que la usen.</p>
+
+<h3 id="error-al-eliminar-un-contenedor">Error al eliminar un contenedor</h3>
+
+<p>Los contenedores de forma similar a las imágenes, no pueden eliminarse si el mismo contenedor está en marcha. Para eliminarlo primero debemos detener la instancia.</p>
+
+    </article>
+
+    <nav class="lesson-navigation" aria-label="Navegación entre unidades">
+
+        
+        <a class="lesson-nav-card" href="/unidades/daw/unidad-1/">
+            <span>← Unidad anterior</span>
+            <strong>Servicio de aplicaciones y Podman</strong>
+        </a>
+        
+
+        
+
+    </nav>
+
+</section>
+    </main>
+
+    
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <strong>Recursos Educativos Interactivos</strong>
+      <p>Un espacio para aprender, practicar y avanzar.</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        © 2026
+        Jesús Ortega.
+        Todos los derechos reservados.
+      </p>
+      <p>Plataforma educativa</p>
+    </div>
+
+  </div>
+</footer>
+
+
+    <!-- Sistema de ejercicios -->
+    <script src="/assets/js/ejercicios.js" defer></script>
+
+    <!-- Sistema de temas -->
+    <script src="/assets/js/theme.js" defer></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+    <script src="/assets/js/editor-js.js" defer></script>
+    <script src="/assets/js/consola-js.js" defer></script>
+
+
+</body>
+
+</html>

@@ -85,3 +85,42 @@ podman version 6.1.4
 %}
 
 Con esto habremos concluido la instalación de Podman. En la próxima unidad veremos los comandos básicos para la manipulación de imagenes y contenedores con Podman.
+
+## 4. Posibles problemas durante la práctica
+
+### Requisito WSL
+
+Si estás instalando Podman en una máquina windows es posible que necesites instalar WSLv2, para ello abre el terminal y ejecuta el siguiente comando y reinicia tu máquina.
+
+{% capture comando %}
+wsl --install
+{% endcapture %}
+
+{% include terminal.html
+   title="Instalar WSL"
+   code=comando
+   output=respuesta
+%}
+
+### Podman Machine
+
+Tras instalarlo es posible que la máquina virtual de Podman no se haya iniciado, para ello ejecuta el siguiente comando:
+
+{% capture comando %}
+podman machine start
+{% endcapture %}
+
+{% capture respuesta %}
+Starting machine "podman-machine-default"
+API forwarding listening on: npipe:////./pipe/docker_engine
+
+Docker API clients default to this address. You do not need to set DOCKER_HOST.
+The host trusted CA certificates have been imported successfully
+Machine "podman-machine-default" started successfully
+{% endcapture %}
+
+{% include terminal.html
+   title="Comprobar versión de Podman"
+   code=comando
+   output=respuesta
+%}

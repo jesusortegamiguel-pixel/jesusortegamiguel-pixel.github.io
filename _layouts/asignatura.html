@@ -46,7 +46,8 @@ layout: default
 
         {% for unidad in unidades %}
 
-          <article class="unit-card">
+          
+          <article class="unit-card" onclick="window.location.href='{{ unidad.url | relative_url }}'">
 
             <div class="unit-number">
               UNIDAD {{ unidad.orden }}

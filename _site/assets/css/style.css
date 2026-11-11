@@ -38,6 +38,8 @@
   --primary: #7895ff;
   --primary-dark: #5d7be8;
   --secondary: #293650;
+  --accent: #f0c133;
+  --accent-hover: #df7f12;
 
   --background: #111827;
   --surface: #1d293b;
@@ -515,6 +517,7 @@ a:hover {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   transition: transform 0.2s, border-color 0.2s;
+  cursor: pointer;
 }
 
 .unit-card:hover {
@@ -976,4 +979,11 @@ a:hover {
 
 .terminal-command code {
   color: #9cdcfe;
+}
+
+.highlighter-rouge {
+  color: #d4d4d4;
+  background-color: #303030;
+  padding: .4em;
+  border-radius: 3px;
 }
