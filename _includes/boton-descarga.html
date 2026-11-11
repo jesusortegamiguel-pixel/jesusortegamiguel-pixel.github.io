@@ -1,0 +1,5 @@
+<a class="boton-descarga" href="{{ include.archivo | relative_url }}"
+    download="{{ include.nombre | default: include.archivo | split: '/' | last }}">
+    <span class="icono-descarga">⬇</span>
+    <span>{{ include.texto | default: "Descargar archivo" }}</span>
+</a>

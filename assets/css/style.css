@@ -18,6 +18,7 @@
 
   --background: #f6f8fc;
   --surface: #ffffff;
+  --neutral: #3b3b3d;
 
   --text: #202b40;
   --muted: #718096;
@@ -43,6 +44,7 @@
 
   --background: #111827;
   --surface: #1d293b;
+  --neutral: #3b3b3d;
 
   --text: #edf2fc;
   --muted: #a4b1c5;
@@ -897,7 +899,7 @@ a:hover {
   border-radius: 8px;
   background: #1e1e1e;
   color: #f1f1f1;
-  box-shadow: 0 3px 10px rgba(0,0,0,.15);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .15);
 }
 
 .terminal-header {
@@ -986,4 +988,95 @@ a:hover {
   background-color: #303030;
   padding: .4em;
   border-radius: 3px;
+}
+
+table {
+  border-spacing: 0px;
+}
+
+table td,
+table th {
+  padding-inline: 1rem;
+  padding-block: 4px;
+}
+
+table tbody tr:hover {
+  background: var(--secondary);
+  padding-inline: 2rem;
+}
+
+/* Lista de archivos descargables */
+.lista-descargas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.elemento-descarga {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 16px;
+  background: var(--neutral);
+  border: 1px solid var(--color-borde);
+  border-radius: 10px;
+}
+
+.informacion-descarga {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.icono-archivo {
+  font-size: 28px;
+}
+
+.informacion-descarga strong {
+  display: block;
+}
+
+.informacion-descarga small {
+  display: block;
+  margin-top: 4px;
+  opacity: 0.7;
+}
+
+
+/* Botón de descarga */
+.boton-descarga {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: #007acc;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+
+.boton-descarga:hover {
+  background: #1d4ed8;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Adaptación a móviles */
+@media (max-width: 600px) {
+  .elemento-descarga {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .boton-descarga {
+    width: 100%;
+    box-sizing: border-box;
+  }
 }

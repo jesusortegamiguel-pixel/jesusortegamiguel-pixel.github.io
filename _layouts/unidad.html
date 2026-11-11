@@ -68,6 +68,13 @@ layout: default
         {{ content }}
     </article>
 
+    <article class="lesson-downloads">
+        <h2>Descargas</h2>
+        {% capture grupo_descargas %}{{ page.asignatura }}-{{ page.slug }}{% endcapture %}
+        {% include lista-descargas.html grupo=grupo_descargas %}
+    </article>
+        
+
     <nav class="lesson-navigation" aria-label="Navegación entre unidades">
 
         {% if anterior %}

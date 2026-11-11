@@ -1,5 +1,6 @@
 ---
 layout: unidad
+slug: unidad-2
 title: Comandos básicos de Podman
 description: Comandos más comunes y usados para la configuración y gestión de contenedores en Podman
 asignatura: daw

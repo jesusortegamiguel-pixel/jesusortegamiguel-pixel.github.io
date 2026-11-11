@@ -1,0 +1,10 @@
+daw-unidad-3:
+  - nombre: "Containerfile"
+    archivo: "/assets/documentos/daw/unidad-3/Containerfile"
+    tipo: "Containerfile"
+    tamano: "0,4 KB"
+
+  - nombre: "app.js"
+    archivo: "/assets/documentos/daw/unidad-3/app.js"
+    tipo: "JavaScript"
+    tamano: "3,2 KB"

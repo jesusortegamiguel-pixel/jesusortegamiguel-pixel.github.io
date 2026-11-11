@@ -1,0 +1,124 @@
+.fixed-code-editor {
+    margin: 24px 0;
+    overflow: hidden;
+    border: 1px solid #343a46;
+    border-radius: 10px;
+    background: #1e1e1e;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+}
+
+.fixed-code-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    padding: 0 14px;
+    background: #252526;
+    border-bottom: 1px solid #343a46;
+    color: #cccccc;
+    font-size: 13px;
+}
+
+.fixed-code-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.fixed-code-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff5f57;
+}
+
+.fixed-code-dots span:nth-child(2) {
+    background: #febc2e;
+}
+
+.fixed-code-dots span:nth-child(3) {
+    background: #28c840;
+}
+
+.fixed-code-filename {
+    flex: 1;
+}
+
+.fixed-code-lang {
+    color: #858585;
+}
+
+.fixed-code-content .CodeMirror {
+    height: auto;
+    max-height: 550px;
+    padding: 12px 0;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.fixed-code-content .CodeMirror-gutters {
+    background: #1e1e1e;
+    border-right: 1px solid #333;
+}
+
+.fixed-code-content .CodeMirror-linenumber {
+    color: #858585;
+}
+
+.fixed-code-content .CodeMirror-cursor {
+    display: none !important;
+}
+
+.fixed-code-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 14px;
+    background: #007acc;
+    color: white;
+    font-size: 11px;
+}
+
+
+.fixed-code-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 10px;
+    border: 1px solid #505050;
+    border-radius: 5px;
+    background: #333333;
+    color: #dddddd;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.fixed-code-copy:hover {
+    background: #454545;
+    border-color: #858585;
+}
+
+.fixed-code-copy:active {
+    background: #555555;
+}
+
+.copy-icon {
+    font-size: 15px;
+}
+
+@media (max-width: 500px) {
+    .fixed-code-header {
+        gap: 7px;
+        padding: 0 8px;
+    }
+
+    .fixed-code-copy {
+        padding: 6px;
+    }
+
+    .fixed-code-lang {
+        display: none;
+    }
+}

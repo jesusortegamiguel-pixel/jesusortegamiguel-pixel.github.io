@@ -20,7 +20,7 @@
 
     <title>
         
-        Servicio de aplicaciones y Podman | Recursos Educativos Interactivos
+        Contenerización con Podman | Recursos Educativos Interactivos
         
     </title>
 
@@ -32,6 +32,7 @@
     <!-- Estilos de ejercicios -->
     <link rel="stylesheet" href="/assets/css/quiz.css">
     <link rel="stylesheet" href="/assets/css/consola-js.css">
+    <link rel="stylesheet" href="/assets/css/editor-fijo.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
     <link rel="stylesheet"
@@ -122,9 +123,9 @@
             UNIDAD 1
         </span>
 
-        <h1>Servicio de aplicaciones y Podman</h1>
+        <h1>Contenerización con Podman</h1>
 
-        <p>Introducción a despliegue de aplicaciones</p>
+        <p>Introducción a despliegue de aplicaciones con Podman</p>
 
     </div>
 
@@ -137,7 +138,7 @@
             <li>
                 <a href="/unidades/daw/unidad-1/" aria-current="page" >
                     <span>Unidad 1</span>
-                    Servicio de aplicaciones y Podman
+                    Contenerización con Podman
                 </a>
             </li>
             
@@ -148,12 +149,19 @@
                 </a>
             </li>
             
+            <li>
+                <a href="/unidades/daw/unidad-3/" >
+                    <span>Unidad 3</span>
+                    Creación de imágenes
+                </a>
+            </li>
+            
         </ol>
 
     </nav>
 
     <article class="lesson-content">
-        <h1 id="unidad-1-servicio-de-aplicaciones-y-podman">Unidad 1. Servicio de aplicaciones y Podman</h1>
+        <h1 id="unidad-1-contenerización-con-podman">Unidad 1. Contenerización con Podman</h1>
 
 <h2 id="1-introducción">1. Introducción</h2>
 <p>El despliegue de aplicaciones web (deployment, en inglés) es el proceso de trasladar una aplicación desde el entorno de desarrollo local (la computadora del programador) a un entorno de producción (un servidor físico o en la nube) para que los usuarios finales puedan acceder a ella a través de internet mediante una URL.</p>
@@ -180,7 +188,7 @@
   </li>
 </ul>
 
-<p>En este tema nos vamos a centrar en la configuración del servidor mediante <a href="https://podman.io/">Podman</a></p>
+<p>En este tema nos vamos a centrar en la <strong>configuración del servidor</strong> mediante <a href="https://podman.io/">Podman</a></p>
 
 <h2 id="3-instalación-de-podman">3. Instalación de Podman</h2>
 
@@ -345,6 +353,15 @@ Machine &quot;podman-machine-default&quot; started successfully</pre>
 
     </article>
 
+    <article class="lesson-downloads">
+        <h2>Descargas</h2>
+        
+        
+
+
+    </article>
+        
+
     <nav class="lesson-navigation" aria-label="Navegación entre unidades">
 
         
@@ -390,11 +407,33 @@ Machine &quot;podman-machine-default&quot; started successfully</pre>
 
     <!-- Sistema de temas -->
     <script src="/assets/js/theme.js" defer></script>
-    
+
+
+    <!-- Lenguajes para CodeMirror -->
+
+    <!-- 1. Biblioteca principal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+
+    <!-- 2. Complemento necesario para defineSimpleMode -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/mode/simple.min.js"></script>
+
+    <!-- 3. Modos de los lenguajes -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/dockerfile/dockerfile.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/yaml/yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/shell/shell.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/markdown/markdown.min.js"></script>
+
+
     <script src="/assets/js/editor-js.js" defer></script>
     <script src="/assets/js/consola-js.js" defer></script>
+    <script src="/assets/js/editor-fijo.js" defer></script>
 
 
 </body>

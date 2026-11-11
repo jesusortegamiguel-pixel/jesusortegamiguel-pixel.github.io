@@ -32,6 +32,7 @@
     <!-- Estilos de ejercicios -->
     <link rel="stylesheet" href="/assets/css/quiz.css">
     <link rel="stylesheet" href="/assets/css/consola-js.css">
+    <link rel="stylesheet" href="/assets/css/editor-fijo.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
     <link rel="stylesheet"
@@ -108,6 +109,10 @@
 
 
 
+
+
+
+
 <section class="lesson-page">
 
     <a class="back-link" href="/asignaturas/daw/">
@@ -139,7 +144,7 @@
             <li>
                 <a href="/unidades/daw/unidad-1/" >
                     <span>Unidad 1</span>
-                    Servicio de aplicaciones y Podman
+                    Contenerización con Podman
                 </a>
             </li>
             
@@ -147,6 +152,13 @@
                 <a href="/unidades/daw/unidad-2/" aria-current="page" >
                     <span>Unidad 2</span>
                     Comandos básicos de Podman
+                </a>
+            </li>
+            
+            <li>
+                <a href="/unidades/daw/unidad-3/" >
+                    <span>Unidad 3</span>
+                    Creación de imágenes
                 </a>
             </li>
             
@@ -814,15 +826,29 @@ docker.io/library/alpine  latest      3ea06e4cb95e  5 days ago  8.73 MB</pre>
 
     </article>
 
+    <article class="lesson-downloads">
+        <h2>Descargas</h2>
+        
+        
+
+
+    </article>
+        
+
     <nav class="lesson-navigation" aria-label="Navegación entre unidades">
 
         
         <a class="lesson-nav-card" href="/unidades/daw/unidad-1/">
             <span>← Unidad anterior</span>
-            <strong>Servicio de aplicaciones y Podman</strong>
+            <strong>Contenerización con Podman</strong>
         </a>
         
 
+        
+        <a class="lesson-nav-card next" href="/unidades/daw/unidad-3/">
+            <span>Unidad siguiente →</span>
+            <strong>Creación de imágenes</strong>
+        </a>
         
 
     </nav>
@@ -857,11 +883,33 @@ docker.io/library/alpine  latest      3ea06e4cb95e  5 days ago  8.73 MB</pre>
 
     <!-- Sistema de temas -->
     <script src="/assets/js/theme.js" defer></script>
-    
+
+
+    <!-- Lenguajes para CodeMirror -->
+
+    <!-- 1. Biblioteca principal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+
+    <!-- 2. Complemento necesario para defineSimpleMode -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/mode/simple.min.js"></script>
+
+    <!-- 3. Modos de los lenguajes -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/dockerfile/dockerfile.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/yaml/yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/shell/shell.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/markdown/markdown.min.js"></script>
+
+
     <script src="/assets/js/editor-js.js" defer></script>
     <script src="/assets/js/consola-js.js" defer></script>
+    <script src="/assets/js/editor-fijo.js" defer></script>
 
 
 </body>

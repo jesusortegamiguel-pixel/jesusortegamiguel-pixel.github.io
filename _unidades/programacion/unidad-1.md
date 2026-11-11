@@ -1,5 +1,6 @@
 ---
 layout: unidad
+slug: unidad-1
 title: El programa
 description: Introducción a programas informáticos
 asignatura: programacion

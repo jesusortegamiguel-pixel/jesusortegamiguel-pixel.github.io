@@ -1,0 +1,28 @@
+{% assign archivos = site.data.descargas[include.grupo] %}
+
+{% if archivos %}
+<div id="descargas-unidad" class="lista-descargas">
+
+    {% for archivo in archivos %}
+    <div class="elemento-descarga">
+
+        <div class="informacion-descarga">
+            <span class="icono-archivo">📄</span>
+
+            <div>
+                <strong>{{ archivo.nombre }}</strong>
+                <small>{{ archivo.tipo }} · {{ archivo.tamano }}</small>
+            </div>
+        </div>
+
+        <a class="boton-descarga" href="{{ archivo.archivo | relative_url }}"
+            download="{{ archivo.archivo | split: '/' | last }}" aria-label="Descargar {{ archivo.nombre }}">
+            <span>⬇</span>
+            Descargar
+        </a>
+
+    </div>
+    {% endfor %}
+
+</div>
+{% endif %}

@@ -1,0 +1,15 @@
+# Utilizamos una imagen ligera basada en Alpine Linux con Node instalado
+FROM node:22-alpine
+
+# Creamos el directorio de trabajo
+WORKDIR /app
+
+# Copiamos el programa al contenedor
+# Esta línea copiará el archivo app.js al directorio de trabajo
+COPY app.js .
+
+# Documentamos el puerto de la aplicación
+EXPOSE 3000
+
+# Ejecutamos el programa
+CMD ["node", "app.js"]
