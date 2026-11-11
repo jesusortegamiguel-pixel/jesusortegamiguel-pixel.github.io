@@ -1,7 +1,7 @@
 ---
 layout: unidad
-title: Servicio de aplicaciones y Podman
-description: Introducción a despliegue de aplicaciones
+title: Contenerización con Podman
+description: Introducción a despliegue de aplicaciones con Podman
 asignatura: daw
 orden: 1
 ---
@@ -15,7 +15,6 @@ No se trata únicamente de copiar y pegar archivos, sino de configurar todos los
 
 ## 2. Actividades clave del despliegue
 
-
 - **Configuración del servidor**: Preparar el sistema operativo, los servidores web (como Nginx o Apache) y los intérpretes o motores de ejecución.
 
 - **Gestión de dependencias**: Instalar las librerías, frameworks y paquetes necesarios para que el código se ejecute correctamente.
@@ -26,7 +25,7 @@ No se trata únicamente de copiar y pegar archivos, sino de configurar todos los
 
 - **Automatización (CI/CD)**: Utilizar integración y despliegue continuo para actualizar la aplicación de forma automática cada vez que se modifica el código.
 
-En este tema nos vamos a centrar en la configuración del servidor mediante [Podman](https://podman.io/)
+En este tema nos vamos a centrar en la **configuración del servidor** mediante [Podman](https://podman.io/)
 
 ## 3. Instalación de Podman
 
