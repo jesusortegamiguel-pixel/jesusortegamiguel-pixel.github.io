@@ -8,3 +8,9 @@ daw-unidad-3:
     archivo: "/assets/documentos/daw/unidad-3/app.js"
     tipo: "JavaScript"
     tamano: "3,2 KB"
+
+daw-unidad-4:
+  - nombre: "docker-compose.yml"
+    archivo: "/assets/documentos/daw/unidad-4/compose.yaml"
+    tipo: "YAML"
+    tamano: "0,8 KB"

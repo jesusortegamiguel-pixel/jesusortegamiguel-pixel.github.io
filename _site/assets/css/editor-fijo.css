@@ -47,6 +47,7 @@
     color: #858585;
 }
 
+
 .fixed-code-content .CodeMirror {
     height: auto;
     max-height: 550px;
@@ -56,6 +57,16 @@
     font-family: Consolas, "Courier New", monospace;
     font-size: 14px;
     line-height: 1.65;
+}
+
+.fixed-code-content .CodeMirror-scroll {
+    min-height: 0;
+    max-height: 550px;
+    overflow: auto !important;
+}
+
+.fixed-code-content .CodeMirror-sizer {
+    min-width: 0;
 }
 
 .fixed-code-content .CodeMirror-gutters {
@@ -70,6 +81,7 @@
 .fixed-code-content .CodeMirror-cursor {
     display: none !important;
 }
+
 
 .fixed-code-footer {
     display: flex;
